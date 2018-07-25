@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include_once("incl/config.php"); ?>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
