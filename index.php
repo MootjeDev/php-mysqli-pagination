@@ -35,10 +35,33 @@ $result = mysqli_query($conn, $sql);
 while($row = mysqli_fetch_array($result)) {
   echo $row['id'] . ' ' . $row['alphabet']. '<br>';
 }
-// display the links to the pages
-for ($page=1;$page<=$number_of_pages;$page++) {
-  echo '<a href="index.php?page=' . $page . '">' . $page . '</a> ';
-}
+$prev1 = $page-2;
+$prev = $page-1;
+$next = $page+1;
+$next1 = $page+2;
+echo '
+<nav aria-label="Page navigation example">
+ <ul class="pagination justify-content">
+   <li class="page-item">
+     <a class="page-link" href="index.php?page=1" tabindex="1">&laquo;</a>
+   </li>
+   <li class="page-item">
+     <a class="page-link" href="index.php?page='.$prev.'" tabindex="-1">Previous</a>
+   </li>
+   <li class="page-item"><a class="page-link" href="index.php?page='.$prev1.'">'.$prev1.'</a></li>
+   <li class="page-item"><a class="page-link" href="index.php?page='.$prev.'">'.$prev.'</a></li>
+   <li class="page-item"><a style="background-color: #ddd;" class="page-link" href="index.php?page='.$page.'">'.$page.'</a></li>
+   <li class="page-item"><a class="page-link" href="index.php?page='.$next.'">'.$next.'</a></li>
+   <li class="page-item"><a class="page-link" href="index.php?page='.$next1.'">'.$next1.'</a></li>
+   <li class="page-item">
+     <a class="page-link" href="index.php?page='.$next.'">Next</a>
+   </li>
+   <li class="page-item">
+     <a class="page-link" href="index.php?page='.$number_of_pages.'">&raquo;</a>
+   </li>
+  </ul>
+ </nav>';
+ 
 ?>
 </body>
 </html>
